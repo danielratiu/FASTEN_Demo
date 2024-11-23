@@ -1,0 +1,11 @@
+# -----------------------------------------------------------
+# General
+
+
+*.class
+
+.idea
+.gradle
+
+build.properties
+/gradle.properties
