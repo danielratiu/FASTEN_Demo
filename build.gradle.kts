@@ -17,7 +17,7 @@ val ciBuild = (System.getenv("CI") != null && System.getenv("CI").toBoolean()) |
 
 
 val _mpsVersion = "2023.2"
-val fastenVersion = "2023.2.2032.27ca1f0"
+val fastenVersion = "2023.2.2035.bbcf632"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
