@@ -8,7 +8,7 @@ import java.util.Date
 plugins {
     base
     id("co.riiid.gradle") version "0.4.2"
-    val mpsGradlePluginVersion = "1.28.0.+"
+    val mpsGradlePluginVersion = "1.29.0.+"
     id("download-jbr") version mpsGradlePluginVersion
     id("de.itemis.mps.gradle.common") version mpsGradlePluginVersion
 }
@@ -85,10 +85,10 @@ tasks {
         mpsVersion = fastenVersion
         mpsHome = mpsHomeDir
         folderMacros.put("fasten.demo.home", layout.projectDirectory)
-        /*pluginRoots.addAll(
+        pluginRoots.from(
             layout.buildDirectory.map { buildDir ->
                 listOf("mps/plugins").map { buildDir.dir(it) }
-            })*/
+            })
         maxHeapSize = "2G"
     }
 }
