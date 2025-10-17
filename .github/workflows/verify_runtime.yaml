@@ -1,0 +1,9 @@
+name: Target Workflow
+on:
+  repository_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Job
+        run: echo "Manually triggered!"
