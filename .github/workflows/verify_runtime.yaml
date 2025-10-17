@@ -1,8 +1,6 @@
 name: Target Workflow
 on:
-  repository_dispatch:
-    types: 
-      - custom_event
+  repository_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
