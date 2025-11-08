@@ -274,13 +274,6 @@
         </node>
       </node>
     </node>
-    <node concept="14JTGF" id="5xecbsSg11I" role="14JSnP">
-      <node concept="19SGf9" id="5xecbsSg11J" role="14J5DT">
-        <node concept="19SUe$" id="5xecbsSg11K" role="19SJt6">
-          <property role="19SUeA" value="ToDo" />
-        </node>
-      </node>
-    </node>
   </node>
 </model>
 
