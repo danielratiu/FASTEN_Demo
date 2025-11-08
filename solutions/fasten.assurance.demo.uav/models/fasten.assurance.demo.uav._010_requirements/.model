@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model ref="r:b31fa36a-153f-40a9-87ec-6a0215747751(fasten.assurance.demo.uav._010_requirements)" content="header">
+  <persistence version="9" />
+  <languages>
+    <devkit ref="b0ef168f-6f92-4bd0-82f3-cf0521463683(fasten.requirements)" />
+    <devkit ref="ac9a2847-3512-4af0-8db9-c20abbe2720a(fasten.safety)" />
+  </languages>
+  <imports />
+</model>
+
