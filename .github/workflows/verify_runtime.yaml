@@ -1,4 +1,4 @@
-name: Target Workflow
+name: SPIs Checking Workflow 
 on:
   repository_dispatch:
   workflow_dispatch:
