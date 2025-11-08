@@ -5,6 +5,8 @@ on:
 jobs:
   check_data_gathered_from_runtime:
     runs-on: ubuntu-latest
+    env:
+      SPIS_DATA_HOME: "./runtime/FASTEN_Demo_Runtime"
     steps:
       - name: Run Job
         run: echo "Manually triggered!"
@@ -12,15 +14,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
+
       - name: Checkout FASTEN_Demo_Runtime repository
         uses: actions/checkout@v4
         with:
           repository: danielratiu/FASTEN_Demo_Runtime
-          path: ./runtime/FASTEN_Demo_Runtime
+          path: ${{ env.SPIS_DATA_HOME }}
 
       - name: Check Models based on Runtime Data
         run: |
-         SPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime
          ./gradlew  \
            -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
            runSPIsChecks
