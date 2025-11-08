@@ -20,9 +20,9 @@ jobs:
 
       - name: Check Models based on Runtime Data
         run: |
+         SPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime
          ./gradlew  \
            -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
-           -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
            runSPIsChecks
 
       - name: Publish test report
