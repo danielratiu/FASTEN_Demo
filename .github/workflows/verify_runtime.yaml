@@ -18,13 +18,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: danielratiu/FASTEN_Demo_Runtime
-          path: ../FASTEN_Demo_Runtime
+          path: ./runtime/FASTEN_Demo_Runtime
 
       - name: Check Models based on Runtime Data
         run: |
           ./gradlew  \
             -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
-            -DSPIS_DATA_HOME=../FASTEN_Demo_Runtime \
+            -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
             runRuntimeModelChecks
 
       - name: Publish test report
