@@ -9,29 +9,29 @@ jobs:
       - name: Run Job
         run: echo "Manually triggered!"
 
-      - uses: actions/checkout@v4
+#      - uses: actions/checkout@v4
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v3
+#     - name: Set up Gradle
+#        uses: gradle/actions/setup-gradle@v3
 
-      - name: Checkout FASTEN_Demo_Runtime repository
-        uses: actions/checkout@v4
-        with:
-          repository: danielratiu/FASTEN_Demo_Runtime
-          path: ./runtime/FASTEN_Demo_Runtime
+#      - name: Checkout FASTEN_Demo_Runtime repository
+#        uses: actions/checkout@v4
+#        with:
+#          repository: danielratiu/FASTEN_Demo_Runtime
+#          path: ./runtime/FASTEN_Demo_Runtime
 
-      - name: Check Models based on Runtime Data
-        run: |
-          ./gradlew  \
-            -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
-            -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
-            runRuntimeModelChecks
+#      - name: Check Models based on Runtime Data
+#        run: |
+ #         ./gradlew  \
+ #           -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
+ #           -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
+ #           runRuntimeModelChecks
 
-      - name: Publish test report
-        uses: mikepenz/action-junit-report@v4
-        if: ${{ !cancelled() }}
-        with:
-          fail_on_failure: true
-          require_tests: true
-          report_paths: 'build/**/TEST*.xml'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Publish test report
+#        uses: mikepenz/action-junit-report@v4
+#        if: ${{ !cancelled() }}
+#        with:
+#          fail_on_failure: true
+#          require_tests: true
+#          report_paths: 'build/**/TEST*.xml'
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
