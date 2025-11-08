@@ -1,6 +1,6 @@
 name: SPIs Checking Workflow 
 on:
-  repository_dispatch:
+#  repository_dispatch:
   workflow_dispatch:
 jobs:
   check_data_gathered_from_runtime:
@@ -10,10 +10,8 @@ jobs:
         run: echo "Manually triggered!"
 
 #      - uses: actions/checkout@v4
-
 #     - name: Set up Gradle
 #        uses: gradle/actions/setup-gradle@v3
-
 #      - name: Checkout FASTEN_Demo_Runtime repository
 #        uses: actions/checkout@v4
 #        with:
@@ -22,10 +20,10 @@ jobs:
 
 #      - name: Check Models based on Runtime Data
 #        run: |
- #         ./gradlew  \
- #           -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
- #           -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
- #           runRuntimeModelChecks
+#         ./gradlew  \
+#           -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
+#           -DSPIS_DATA_HOME=./runtime/FASTEN_Demo_Runtime \
+#           runRuntimeModelChecks
 
 #      - name: Publish test report
 #        uses: mikepenz/action-junit-report@v4
