@@ -106,8 +106,15 @@ tasks.register("runStaticModelChecks", MpsCheck::class) {
     excludeModules = listOf("fasten.assurance.demo.spis")
 }
 
-tasks.register("runFastenModelSpisChecks", MpsCheck::class) {
-    dependsOn("generateCustomChecks")
+tasks.register("generateSPIsChecks", MpsGenerate::class) {
+    dependsOn(resolveMps)
+    projectLocation = file(".")
+    modules = listOf("fasten.assurance.demo.spis")
+    environmentKind = EnvironmentKind.IDEA
+}
+
+tasks.register("runSPIsChecks", MpsCheck::class) {
+    dependsOn("generateSPIsChecks")
     projectLocation = file(".")
     modules = listOf("fasten.assurance.demo.spis")
 }
