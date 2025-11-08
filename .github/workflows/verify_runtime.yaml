@@ -3,7 +3,7 @@ on:
   repository_dispatch:
   workflow_dispatch:
 jobs:
-  build:
+  check_data_gathered_from_runtime:
     runs-on: ubuntu-latest
     steps:
       - name: Run Job
