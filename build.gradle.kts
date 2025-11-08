@@ -16,7 +16,7 @@ plugins {
 // detect if we are in a CI build
 val ciBuild = (System.getenv("CI") != null && System.getenv("CI").toBoolean()) || project.hasProperty("forceCI") || project.hasProperty("teamcity")
 
-val fastenVersion = "2024.1.1518.fef85a7"
+val fastenVersion = "feature-spis_improvements.2024.1.1532.6c32cd0"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
@@ -100,9 +100,16 @@ tasks.register("generateCustomChecks", MpsGenerate::class) {
     environmentKind = EnvironmentKind.IDEA
 }
 
-tasks.register("runFastenModelChecks", MpsCheck::class) {
+tasks.register("runStaticModelChecks", MpsCheck::class) {
     dependsOn("generateCustomChecks")
     projectLocation = file(".")
-    modules = listOf("fasten.assurance.demo")
+    excludeModules = listOf("fasten.assurance.demo.spis")
 }
-defaultTasks("runFastenModelChecks")
+
+tasks.register("runFastenModelSpisChecks", MpsCheck::class) {
+    dependsOn("generateCustomChecks")
+    projectLocation = file(".")
+    modules = listOf("fasten.assurance.demo.spis")
+}
+
+defaultTasks("runStaticModelChecks")
