@@ -93,6 +93,7 @@
       </concept>
       <concept id="1068498886292" name="jetbrains.mps.baseLanguage.structure.ParameterDeclaration" flags="ir" index="37vLTG" />
       <concept id="1225271177708" name="jetbrains.mps.baseLanguage.structure.StringType" flags="in" index="17QB3L" />
+      <concept id="1225271546410" name="jetbrains.mps.baseLanguage.structure.TrimOperation" flags="nn" index="17S1cR" />
       <concept id="4972933694980447171" name="jetbrains.mps.baseLanguage.structure.BaseVariableDeclaration" flags="ng" index="19Szcq">
         <child id="5680397130376446158" name="type" index="1tU5fm" />
       </concept>
@@ -482,8 +483,11 @@
                         <node concept="2YIFZM" id="5xecbsShj8P" role="33vP2m">
                           <ref role="37wK5l" to="wyt6:~Integer.parseInt(java.lang.String)" resolve="parseInt" />
                           <ref role="1Pybhc" to="wyt6:~Integer" resolve="Integer" />
-                          <node concept="37vLTw" id="5xecbsSl1YF" role="37wK5m">
-                            <ref role="3cqZAo" node="5xecbsSl1YB" resolve="string" />
+                          <node concept="2OqwBi" id="1mOV93ofADp" role="37wK5m">
+                            <node concept="37vLTw" id="5xecbsSl1YF" role="2Oq$k0">
+                              <ref role="3cqZAo" node="5xecbsSl1YB" resolve="exposureString" />
+                            </node>
+                            <node concept="17S1cR" id="1mOV93ofDJ$" role="2OqNvi" />
                           </node>
                         </node>
                       </node>
@@ -519,8 +523,11 @@
                             <node concept="2YIFZM" id="5xecbsSilXF" role="33vP2m">
                               <ref role="37wK5l" to="wyt6:~Integer.parseInt(java.lang.String)" resolve="parseInt" />
                               <ref role="1Pybhc" to="wyt6:~Integer" resolve="Integer" />
-                              <node concept="37vLTw" id="5xecbsSl9mO" role="37wK5m">
-                                <ref role="3cqZAo" node="5xecbsSl9mK" resolve="string" />
+                              <node concept="2OqwBi" id="1mOV93ofG9g" role="37wK5m">
+                                <node concept="37vLTw" id="5xecbsSl9mO" role="2Oq$k0">
+                                  <ref role="3cqZAo" node="5xecbsSl9mK" resolve="numberOfIncidentsString" />
+                                </node>
+                                <node concept="17S1cR" id="1mOV93ofIOe" role="2OqNvi" />
                               </node>
                             </node>
                           </node>
