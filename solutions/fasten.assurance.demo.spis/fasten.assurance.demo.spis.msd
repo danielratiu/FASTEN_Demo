@@ -18,6 +18,7 @@
     <dependency reexport="false">1af6ef11-a5d7-49f4-9f8f-032f22373b10(fasten.assurance.demo.uav)</dependency>
     <dependency reexport="false">8865b7a8-5271-43d3-884c-6fd1d9cfdd34(MPS.OpenAPI)</dependency>
     <dependency reexport="false">f52452b6-7f99-441b-98f9-a98c52b92236(com.fasten.req.odd)</dependency>
+    <dependency reexport="false">1f4710e9-f074-4732-a0bd-6fa896d282b7(com.mpsbasics.project.utils)</dependency>
   </dependencies>
   <languageVersions>
     <language slang="l:e4dd8dcd-fbfe-4e69-bcdd-b4371f25f476:com.fasten.base.git" version="0" />

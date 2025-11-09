@@ -16,7 +16,7 @@ plugins {
 // detect if we are in a CI build
 val ciBuild = (System.getenv("CI") != null && System.getenv("CI").toBoolean()) || project.hasProperty("forceCI") || project.hasProperty("teamcity")
 
-val fastenVersion = "feature-spis_improvements.2024.1.1532.6c32cd0"
+val fastenVersion = "feature-spis_improvements.2024.1.1534.320e7fd"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
