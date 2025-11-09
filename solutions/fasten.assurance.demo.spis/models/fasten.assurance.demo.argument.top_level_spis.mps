@@ -792,7 +792,7 @@
       <node concept="3clFbS" id="5xecbsSg54I" role="3clF47">
         <node concept="3cpWs8" id="5xecbsSgk7j" role="3cqZAp">
           <node concept="3cpWsn" id="5xecbsSgk7k" role="3cpWs9">
-            <property role="TrG5h" value="fullyQualifiedPath" />
+            <property role="TrG5h" value="relativePath" />
             <node concept="17QB3L" id="5xecbsSgj_F" role="1tU5fm" />
             <node concept="3cpWs3" id="5xecbsSgk7l" role="33vP2m">
               <node concept="37vLTw" id="5xecbsSgk7m" role="3uHU7w">
@@ -821,6 +821,26 @@
             </node>
           </node>
         </node>
+        <node concept="3cpWs8" id="1mOV93of4Iw" role="3cqZAp">
+          <node concept="3cpWsn" id="1mOV93of4Iz" role="3cpWs9">
+            <property role="TrG5h" value="absolutePath" />
+            <node concept="17QB3L" id="1mOV93of4Iu" role="1tU5fm" />
+            <node concept="2OqwBi" id="1mOV93ofjfs" role="33vP2m">
+              <node concept="2ShNRf" id="1mOV93of6wr" role="2Oq$k0">
+                <node concept="1pGfFk" id="1mOV93ofhls" role="2ShVmc">
+                  <property role="373rjd" value="true" />
+                  <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
+                  <node concept="37vLTw" id="1mOV93ofijp" role="37wK5m">
+                    <ref role="3cqZAo" node="5xecbsSgk7k" resolve="relativePath" />
+                  </node>
+                </node>
+              </node>
+              <node concept="liA8E" id="1mOV93oflIc" role="2OqNvi">
+                <ref role="37wK5l" to="guwi:~File.getAbsolutePath()" resolve="getAbsolutePath" />
+              </node>
+            </node>
+          </node>
+        </node>
         <node concept="3cpWs8" id="5xecbsSg5d3" role="3cqZAp">
           <node concept="3cpWsn" id="5xecbsSg5d4" role="3cpWs9">
             <property role="TrG5h" value="myFile" />
@@ -832,7 +852,7 @@
                 <property role="373rjd" value="true" />
                 <ref role="37wK5l" to="guwi:~File.&lt;init&gt;(java.lang.String)" resolve="File" />
                 <node concept="37vLTw" id="5xecbsSgk7u" role="37wK5m">
-                  <ref role="3cqZAo" node="5xecbsSgk7k" resolve="fullyQualifiedPath" />
+                  <ref role="3cqZAo" node="1mOV93of4Iz" resolve="absolutePath" />
                 </node>
               </node>
             </node>
