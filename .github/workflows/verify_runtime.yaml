@@ -23,6 +23,9 @@ jobs:
 
       - name: Check Models based on Runtime Data
         run: |
+         pwd 
+         ls -l
+         ls ..
          ./gradlew  \
            -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
            runSPIsChecks
