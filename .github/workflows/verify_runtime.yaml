@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SPIS_DATA_HOME_CHECKOUT: "./runtime/FASTEN_Demo_Runtime"
+      # the checking task is ran in a sub-directory of build - FASTEN_Demo/build/temp_xyz/runSpiChecks
+      # relative to that directory, we need to go up 3 times to reach the directory where the repo was cloned
       SPIS_DATA_HOME: "../../../runtime/FASTEN_Demo_Runtime"
     steps:
       - name: Run Job
