@@ -102,6 +102,17 @@
         </node>
         <node concept="3fZHMl" id="1dcfyN87RAh" role="3fWwZA" />
       </node>
+      <node concept="3fWYEE" id="2Yza4u83o7i" role="3fY04B">
+        <property role="3fWJIx" value="3RNDPbM0lNB/allow_only" />
+        <node concept="MFvB7" id="2Yza4u83o7k" role="3fWY_o">
+          <ref role="MFvBS" node="2Yza4u83o73" resolve="Country" />
+        </node>
+        <node concept="3fZHMl" id="2Yza4u83o7l" role="3fWwZA">
+          <node concept="MFvB7" id="2Yza4u83o7m" role="3fZHMq">
+            <ref role="MFvBS" node="2Yza4u83o7f" resolve="EU Country" />
+          </node>
+        </node>
+      </node>
     </node>
   </node>
 </model>

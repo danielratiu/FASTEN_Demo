@@ -9,6 +9,14 @@
     <import index="mqog" ref="r:b31fa36a-153f-40a9-87ec-6a0215747751(fasten.assurance.demo.uav._010_requirements)" />
   </imports>
   <registry>
+    <language id="0deccdfd-196b-4d8c-895e-0d6cb8014dfd" name="com.mbeddr.formal.req.base">
+      <concept id="467505803006179844" name="com.mbeddr.formal.req.base.structure.RequirementTrace" flags="ng" index="0Sh09">
+        <child id="7993788941569402916" name="reqRefs" index="hnKMk" />
+      </concept>
+      <concept id="7993788941569402923" name="com.mbeddr.formal.req.base.structure.RequirementRef" flags="ng" index="hnKMr">
+        <reference id="7993788941569402924" name="req" index="hnKMs" />
+      </concept>
+    </language>
     <language id="c7f99e92-818b-4094-a2f9-369356a5259c" name="com.symo.plantuml.ext">
       <concept id="7351702347342571918" name="com.symo.plantuml.ext.structure.ComponentDiagramComponentDeclarationReuse" flags="ng" index="tL1vr">
         <reference id="7351702347342908998" name="component" index="tKv0j" />
@@ -57,6 +65,7 @@
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
         <property id="1193676396447" name="virtualPackage" index="3GE5qa" />
+        <child id="5169995583184591170" name="smodelAttribute" index="lGtFl" />
       </concept>
       <concept id="1169194658468" name="jetbrains.mps.lang.core.structure.INamedConcept" flags="ngI" index="TrEIO">
         <property id="1169194664001" name="name" index="TrG5h" />
@@ -163,6 +172,11 @@
         </node>
         <node concept="1pts5n" id="1dcfyN87R_7" role="3eE$XC">
           <property role="TrG5h" value="Fusion" />
+          <node concept="0Sh09" id="2Yza4u84Oiv" role="lGtFl">
+            <node concept="hnKMr" id="2Yza4u84Oiw" role="hnKMk">
+              <ref role="hnKMs" to="mqog:1dcfyN87vMs" resolve="sys_od_010" />
+            </node>
+          </node>
         </node>
         <node concept="1pts5n" id="1dcfyN87R_p" role="3eE$XC">
           <property role="TrG5h" value="SceneBuilder" />
@@ -234,6 +248,14 @@
         <ref role="tKv0j" node="1dcfyN87vPI" resolve="PlanningSystem" />
         <node concept="1pts5n" id="1aUDt0N7DaX" role="3eE$XC">
           <property role="TrG5h" value="NominalPathPlaner" />
+          <node concept="0Sh09" id="2Yza4u84Oiy" role="lGtFl">
+            <node concept="hnKMr" id="2Yza4u84Oiz" role="hnKMk">
+              <ref role="hnKMs" to="mqog:1dcfyN87vMC" resolve="sys_02" />
+            </node>
+            <node concept="hnKMr" id="2Yza4u84Oi$" role="hnKMk">
+              <ref role="hnKMs" to="mqog:1dcfyN87vMw" />
+            </node>
+          </node>
         </node>
         <node concept="1pts5n" id="1aUDt0N7Dpi" role="3eE$XC">
           <property role="TrG5h" value="EscapeManuverPlaner" />
@@ -283,6 +305,21 @@
             <ref role="1pvSZS" node="1aUDt0N7DIj" resolve="Arbiter" />
           </node>
         </node>
+        <node concept="c$xRF" id="2Yza4u84Oi_" role="3eE$XC" />
+        <node concept="1pt6Ps" id="2Yza4u84OiB" role="3eE$XC">
+          <property role="TrG5h" value="MotionCmds" />
+        </node>
+        <node concept="1ps3o1" id="2Yza4u84OiE" role="3eE$XC">
+          <node concept="S$sFP" id="2Yza4u84OiN" role="S$pns" />
+          <node concept="1pvSZV" id="2Yza4u84OiH" role="1pvUZv">
+            <ref role="1pvSZS" node="1aUDt0N7DIj" resolve="Arbiter" />
+          </node>
+          <node concept="1pvUZi" id="2Yza4u84OiR" role="1pvUZs">
+            <ref role="1pvUZj" node="2Yza4u84OiB" resolve="MotionCommands" />
+          </node>
+        </node>
+        <node concept="c$xRF" id="2Yza4u84OiT" role="3eE$XC" />
+        <node concept="c$xRF" id="2Yza4u84OiU" role="3eE$XC" />
       </node>
       <node concept="c$xRF" id="1aUDt0N7Dbo" role="1pqCzW" />
       <node concept="1pqCE1" id="1aUDt0N7Dbp" role="1pqCzW" />

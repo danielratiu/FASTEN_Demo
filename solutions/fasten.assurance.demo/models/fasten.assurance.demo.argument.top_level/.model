@@ -7,6 +7,7 @@
   <imports>
     <import index="df09" ref="r:a825da6a-2322-46d0-b1cf-a6fe5647737d(fasten.assurance.demo.common._100_Process)" />
     <import index="37s5" ref="r:92d602df-97f5-4586-aadf-c5619ab85c1d(fasten.assurance.demo.uav._100_stpa)" />
+    <import index="mqog" ref="r:b31fa36a-153f-40a9-87ec-6a0215747751(fasten.assurance.demo.uav._010_requirements)" />
   </imports>
 </model>
 

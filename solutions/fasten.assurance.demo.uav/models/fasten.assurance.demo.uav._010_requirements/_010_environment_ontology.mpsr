@@ -163,6 +163,26 @@
       <property role="TrG5h" value="Water" />
       <ref role="3SOpc_" node="1dcfyN87vOA" resolve="Closed Space" />
     </node>
+    <node concept="2IzUYn" id="2Yza4u83o71" role="3SOpfD" />
+    <node concept="3SOpcA" id="2Yza4u83o73" role="3SOpfD">
+      <property role="TrG5h" value="Country" />
+    </node>
+    <node concept="3SOpcA" id="2Yza4u83o7f" role="3SOpfD">
+      <property role="TrG5h" value="EU Country" />
+      <ref role="3SOpc_" node="2Yza4u83o73" resolve="Country" />
+    </node>
+    <node concept="3SOpcA" id="2Yza4u83o76" role="3SOpfD">
+      <property role="TrG5h" value="Germany" />
+      <ref role="3SOpc_" node="2Yza4u83o7f" resolve="EU Country" />
+    </node>
+    <node concept="3SOpcA" id="2Yza4u83o79" role="3SOpfD">
+      <property role="TrG5h" value="Sweden" />
+      <ref role="3SOpc_" node="2Yza4u83o7f" resolve="EU Country" />
+    </node>
+    <node concept="3SOpcA" id="2Yza4u83o7c" role="3SOpfD">
+      <property role="TrG5h" value="China" />
+      <ref role="3SOpc_" node="2Yza4u83o73" resolve="Country" />
+    </node>
     <node concept="19SGf9" id="1dcfyN87vOh" role="2I8HYo">
       <node concept="19SUe$" id="1dcfyN87vOi" role="19SJt6">
         <property role="19SUeA" value="This ontology represents environmental conditions&#10;related to the operations of the UAV system " />

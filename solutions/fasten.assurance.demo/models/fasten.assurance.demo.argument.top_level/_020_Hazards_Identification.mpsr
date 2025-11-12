@@ -47,7 +47,9 @@
     <language id="e8a04d94-4307-4f88-95a2-25f7c4f39437" name="com.mbeddr.formal.safety.gsn">
       <concept id="4266958635905474024" name="com.mbeddr.formal.safety.gsn.structure.Solution" flags="ng" index="2vmhmH" />
       <concept id="4266958635905406443" name="com.mbeddr.formal.safety.gsn.structure.Strategy" flags="ng" index="2vmxQI" />
-      <concept id="4266958635905267565" name="com.mbeddr.formal.safety.gsn.structure.Goal" flags="ng" index="2vn7WC" />
+      <concept id="4266958635905267565" name="com.mbeddr.formal.safety.gsn.structure.Goal" flags="ng" index="2vn7WC">
+        <property id="9102875167979884151" name="undeveloped" index="8uqrb" />
+      </concept>
       <concept id="4266958635905267510" name="com.mbeddr.formal.safety.gsn.structure.GoalStructure" flags="ng" index="2vn7XN">
         <child id="4266958635905772385" name="connections" index="2vhqc$" />
         <child id="4266958635905277632" name="content" index="2vn1q5" />
@@ -109,7 +111,7 @@
         <node concept="gqqVs" id="5xecbsSg1m7" role="37mO4d">
           <property role="gqqTZ" value="224.0" />
           <property role="gqqTW" value="172.0" />
-          <property role="gqqTX" value="207.0" />
+          <property role="gqqTX" value="216.0" />
           <property role="gqqTy" value="96.0" />
           <property role="TgtnS" value="1.0;0.0;0.0;1.0;0.0;0.0" />
         </node>
@@ -131,16 +133,30 @@
       <node concept="37mRIm" id="5xecbsSg2oB" role="37mRID">
         <property role="37mO49" value="6363076887001965961" />
         <node concept="gqqVs" id="5xecbsSg2oA" role="37mO4d">
-          <property role="gqqTZ" value="26.0" />
-          <property role="gqqTW" value="570.512531599336" />
-          <property role="gqqTX" value="172.0" />
-          <property role="gqqTy" value="54.0" />
+          <property role="gqqTZ" value="5.0" />
+          <property role="gqqTW" value="521.512531599336" />
+          <property role="gqqTX" value="214.0" />
+          <property role="gqqTy" value="60.0" />
           <property role="TgtnS" value="1.0;0.0;0.0;1.0;0.0;0.0" />
         </node>
       </node>
       <node concept="37mRIm" id="5xecbsSg2uU" role="37mRID">
         <property role="37mO49" value="6363076887001966438" />
         <node concept="2VclpC" id="5xecbsSg2uT" role="37mO4d" />
+      </node>
+      <node concept="37mRIm" id="2Yza4u84NuZ" role="37mRID">
+        <property role="37mO49" value="3432631628677199747" />
+        <node concept="2VclpC" id="2Yza4u84NuY" role="37mO4d" />
+      </node>
+      <node concept="37mRIm" id="2Yza4u84NxM" role="37mRID">
+        <property role="37mO49" value="3432631628677199924" />
+        <node concept="gqqVs" id="2Yza4u84NxL" role="37mO4d">
+          <property role="gqqTZ" value="300.0" />
+          <property role="gqqTW" value="361.0" />
+          <property role="gqqTX" value="204.0" />
+          <property role="gqqTy" value="76.0" />
+          <property role="TgtnS" value="1.0;0.0;0.0;1.0;0.0;0.0" />
+        </node>
       </node>
     </node>
     <node concept="2vmxQI" id="5xecbsSg1kq" role="2vn1q5">
@@ -152,8 +168,8 @@
       </node>
     </node>
     <node concept="3VeUTF" id="5xecbsSg1oz" role="2vhqc$">
-      <ref role="3VeSjP" node="Fi9JGvVOaz" resolve="G02_Haz_Ident" />
-      <ref role="3VeSjQ" node="5xecbsSg1kq" />
+      <ref role="3VeSjP" node="Fi9JGvVOaz" resolve="Haz_Ident_G01" />
+      <ref role="3VeSjQ" node="5xecbsSg1kq" resolve="Haz_Ident_St01" />
     </node>
     <node concept="2vn7WC" id="5xecbsSg1TK" role="2vn1q5">
       <property role="TrG5h" value="Haz:Ident_G02" />
@@ -179,7 +195,24 @@
     </node>
     <node concept="3VeUTF" id="5xecbsSg2tA" role="2vhqc$">
       <ref role="3VeSjP" node="5xecbsSg1TK" resolve="Haz:Ident_G02" />
-      <ref role="3VeSjQ" node="5xecbsSg2m9" />
+      <ref role="3VeSjQ" node="5xecbsSg2m9" resolve="Haz_Ident_S01" />
+    </node>
+    <node concept="3VeUTF" id="2Yza4u84Nu3" role="2vhqc$">
+      <ref role="3VeSjP" node="5xecbsSg1kq" resolve="Haz_Ident_St01" />
+      <ref role="3VeSjQ" node="5xecbsSg1TK" resolve="Haz:Ident_G02" />
+    </node>
+    <node concept="2vn7WC" id="2Yza4u84NwO" role="2vn1q5">
+      <property role="TrG5h" value="Haz_Ident_G03" />
+      <property role="8uqrb" value="true" />
+      <node concept="19SGf9" id="2Yza4u84NwP" role="2vnaTY">
+        <node concept="19SUe$" id="2Yza4u84NwQ" role="19SJt6">
+          <property role="19SUeA" value="Occurrences and severities are&#10;estimated following well defined&#10;processes." />
+        </node>
+      </node>
+    </node>
+    <node concept="3VeUTF" id="2Yza4u84O2r" role="2vhqc$">
+      <ref role="3VeSjP" node="5xecbsSg1kq" resolve="Haz_Ident_St01" />
+      <ref role="3VeSjQ" node="2Yza4u84NwO" resolve="Haz_Ident_G03" />
     </node>
   </node>
 </model>
