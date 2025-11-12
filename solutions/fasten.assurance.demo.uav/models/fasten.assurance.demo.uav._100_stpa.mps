@@ -30,6 +30,12 @@
         <reference id="2004523000582375039" name="action" index="1E0n_N" />
         <child id="2925021647566955780" name="actionsForHazopKeyword" index="3f6qqO" />
       </concept>
+      <concept id="2004523000582413321" name="com.mbeddr.formal.safety.stamp.structure.ActionDescriptionBase" flags="ng" index="1E0uc5">
+        <child id="2185346695491723265" name="hazards" index="2Dy4$W" />
+      </concept>
+      <concept id="2004523000582413322" name="com.mbeddr.formal.safety.stamp.structure.TextualActionDescription" flags="ng" index="1E0uc6">
+        <child id="2004523000582413323" name="text" index="1E0uc7" />
+      </concept>
       <concept id="2004523000582631964" name="com.mbeddr.formal.safety.stamp.structure.TextualContext" flags="ng" index="1E0COg">
         <child id="2004523000582631965" name="text" index="1E0COh" />
       </concept>
@@ -78,6 +84,9 @@
         <child id="7926133672145657778" name="losses" index="3Zv_sA" />
       </concept>
       <concept id="9102875167978180681" name="com.mbeddr.formal.safety.hara.structure.HazardsList" flags="ng" index="8gVzP" />
+      <concept id="7998766141987827621" name="com.mbeddr.formal.safety.hara.structure.HazardRef" flags="ng" index="DABN8">
+        <reference id="7998766141987827622" name="hazard" index="DABNb" />
+      </concept>
       <concept id="2626862697025835302" name="com.mbeddr.formal.safety.hara.structure.Losses" flags="ng" index="2HxQMi">
         <child id="2626862697025835303" name="losses" index="2HxQMj" />
       </concept>
@@ -496,7 +505,7 @@
         <ref role="1E0n_N" node="1aUDt0N7BuS" resolve="Annotated Scene" />
         <node concept="3f6qtF" id="1aUDt0N7C5Q" role="3f6qqO">
           <node concept="1E0COo" id="1aUDt0N7C9D" role="3f6qtG">
-            <property role="TrG5h" value="PER_UCA_01" />
+            <property role="TrG5h" value="PER_UCA_01_01" />
             <node concept="1E0COg" id="1aUDt0NeOh_" role="1E0COp">
               <node concept="19SGf9" id="1aUDt0NeOhB" role="1E0COh">
                 <node concept="19SUe$" id="1aUDt0NeOhC" role="19SJt6">
@@ -509,7 +518,7 @@
             </node>
           </node>
           <node concept="1E0COo" id="1aUDt0NeOSn" role="3f6qtG">
-            <property role="TrG5h" value="PER_UCA_02" />
+            <property role="TrG5h" value="PER_UCA_01_02" />
             <node concept="1YbhHi" id="1aUDt0NeOT9" role="1E0COp">
               <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
             </node>
@@ -518,8 +527,76 @@
             </node>
           </node>
         </node>
-        <node concept="3f6qtF" id="1aUDt0N7C5R" role="3f6qqO" />
-        <node concept="3f6qtF" id="1aUDt0N7C5S" role="3f6qqO" />
+        <node concept="3f6qtF" id="1aUDt0N7C5R" role="3f6qqO">
+          <node concept="1E0COo" id="2Yza4u84ZK2" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_01_03" />
+            <node concept="1YbhHi" id="2Yza4u84ZK3" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZK4" role="1E0COk">
+              <ref role="gxbni" node="1aUDt0Ngmae" resolve="UAV gets too close to another object." />
+            </node>
+          </node>
+          <node concept="1E0COo" id="2Yza4u84ZK6" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_01_04" />
+            <node concept="1YbhHi" id="2Yza4u84ZK7" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZK8" role="1E0COk">
+              <ref role="gxbni" node="5xecbsSg2Xp" resolve="UAV collides with another object." />
+            </node>
+          </node>
+        </node>
+        <node concept="3f6qtF" id="1aUDt0N7C5S" role="3f6qqO">
+          <node concept="1E0COo" id="2Yza4u84ZK9" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_01_05" />
+            <node concept="1YbhHi" id="2Yza4u84ZKa" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZKb" role="1E0COk">
+              <ref role="gxbni" node="1aUDt0Ngmae" resolve="UAV gets too close to another object." />
+            </node>
+          </node>
+          <node concept="1E0COo" id="2Yza4u84ZKc" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_01_06" />
+            <node concept="1YbhHi" id="2Yza4u84ZKd" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZKe" role="1E0COk">
+              <ref role="gxbni" node="5xecbsSg2Xp" resolve="UAV collides with another object." />
+            </node>
+          </node>
+        </node>
+      </node>
+      <node concept="1E0nOJ" id="2Yza4u84ZKf" role="1E0nOC">
+        <ref role="1E0n_N" node="1aUDt0N7C_B" resolve="Objects Velocities and Direction" />
+        <node concept="3f6qtF" id="2Yza4u84ZKg" role="3f6qqO">
+          <node concept="1E0COo" id="2Yza4u84ZKu" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_02_01" />
+            <node concept="1YbhHi" id="2Yza4u84ZKw" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOxf" resolve="UAV_CTX_02" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZKx" role="1E0COk">
+              <ref role="gxbni" node="5xecbsSg2Xp" resolve="UAV collides with another object." />
+            </node>
+          </node>
+          <node concept="1E0uc6" id="2Yza4u84ZKz" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_02_02" />
+            <node concept="19SGf9" id="2Yza4u84ZK_" role="1E0uc7">
+              <node concept="19SUe$" id="2Yza4u84ZKA" role="19SJt6">
+                <property role="19SUeA" value="In flight, too close to the ground&#10;and in proximity of moving objects" />
+              </node>
+            </node>
+            <node concept="DABN8" id="2Yza4u84ZKB" role="2Dy4$W">
+              <ref role="DABNb" node="5xecbsSg2Xp" resolve="UAV collides with another object." />
+            </node>
+            <node concept="DABN8" id="2Yza4u84ZKC" role="2Dy4$W">
+              <ref role="DABNb" node="2Yza4u84ZKD" resolve="UAV collides with a human." />
+            </node>
+          </node>
+        </node>
+        <node concept="3f6qtF" id="2Yza4u84ZKh" role="3f6qqO" />
+        <node concept="3f6qtF" id="2Yza4u84ZKi" role="3f6qqO" />
       </node>
     </node>
     <node concept="3f73zW" id="1aUDt0N7BYE" role="3f73zo">
@@ -530,6 +607,34 @@
     </node>
     <node concept="3f73zW" id="1aUDt0N7C0$" role="3f73zo">
       <property role="TrG5h" value="Erroneous" />
+    </node>
+    <node concept="1E0nOG" id="2Yza4u84ZN2" role="1E0n_e">
+      <ref role="1E0nOH" node="1dcfyN87vNH" resolve="Communication System" />
+      <node concept="1E0nOJ" id="2Yza4u84ZN3" role="1E0nOC">
+        <ref role="1E0n_N" node="1aUDt0N7B9l" resolve="Telemetry" />
+        <node concept="3f6qtF" id="2Yza4u84ZN4" role="3f6qqO">
+          <node concept="1E0COo" id="2Yza4u84ZN7" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_03_01" />
+            <node concept="1YbhHi" id="2Yza4u84ZN8" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZN9" role="1E0COk">
+              <ref role="gxbni" node="2Yza4u84ZJT" resolve="UAV exits the ODD" />
+            </node>
+          </node>
+          <node concept="1E0COo" id="2Yza4u84ZNa" role="3f6qtG">
+            <property role="TrG5h" value="PER_UCA_03_03" />
+            <node concept="1YbhHi" id="2Yza4u84ZNb" role="1E0COp">
+              <ref role="1YbhHj" node="1aUDt0NeOnr" resolve="UAV_CTX_01" />
+            </node>
+            <node concept="gxbn0" id="2Yza4u84ZNc" role="1E0COk">
+              <ref role="gxbni" node="2Yza4u84ZNd" resolve="UAV looses orientation" />
+            </node>
+          </node>
+        </node>
+        <node concept="3f6qtF" id="2Yza4u84ZN5" role="3f6qqO" />
+        <node concept="3f6qtF" id="2Yza4u84ZN6" role="3f6qqO" />
+      </node>
     </node>
   </node>
   <node concept="1Yc8wL" id="1aUDt0NeOnq">
@@ -611,6 +716,30 @@
       </node>
       <node concept="3Zv_sa" id="5xecbsSg2Xs" role="3Zv_sA">
         <ref role="3Zv_sb" node="1aUDt0N7BNP" resolve="Emergency responder injured" />
+      </node>
+    </node>
+    <node concept="8gVzc" id="2Yza4u84ZKD" role="8gIbH">
+      <property role="0lsPA" value="HAZ_03" />
+      <property role="TrG5h" value="UAV collides with a human." />
+      <node concept="3Zv_sa" id="2Yza4u84ZKG" role="3Zv_sA">
+        <ref role="3Zv_sb" node="1aUDt0N7BNP" resolve="Emergency responder injured" />
+      </node>
+    </node>
+    <node concept="8gVzc" id="2Yza4u84ZJT" role="8gIbH">
+      <property role="0lsPA" value="HAZ_04" />
+      <property role="TrG5h" value="UAV exits the ODD" />
+      <node concept="3Zv_sa" id="2Yza4u84ZNg" role="3Zv_sA">
+        <ref role="3Zv_sb" node="1aUDt0N7BIb" resolve="UAV lost" />
+      </node>
+    </node>
+    <node concept="8gVzc" id="2Yza4u84ZNd" role="8gIbH">
+      <property role="0lsPA" value="HAZ_05" />
+      <property role="TrG5h" value="UAV looses orientation" />
+      <node concept="3Zv_sa" id="2Yza4u84ZNe" role="3Zv_sA">
+        <ref role="3Zv_sb" node="1aUDt0N7BIb" resolve="UAV lost" />
+      </node>
+      <node concept="3Zv_sa" id="2Yza4u84ZNf" role="3Zv_sA">
+        <ref role="3Zv_sb" node="1aUDt0N7BLW" resolve="UAV damaged" />
       </node>
     </node>
   </node>

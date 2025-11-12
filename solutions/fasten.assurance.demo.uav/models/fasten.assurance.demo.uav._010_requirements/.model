@@ -5,6 +5,8 @@
     <devkit ref="b0ef168f-6f92-4bd0-82f3-cf0521463683(fasten.requirements)" />
     <devkit ref="ac9a2847-3512-4af0-8db9-c20abbe2720a(fasten.safety)" />
   </languages>
-  <imports />
+  <imports>
+    <import index="37s5" ref="r:92d602df-97f5-4586-aadf-c5619ab85c1d(fasten.assurance.demo.uav._100_stpa)" />
+  </imports>
 </model>
 

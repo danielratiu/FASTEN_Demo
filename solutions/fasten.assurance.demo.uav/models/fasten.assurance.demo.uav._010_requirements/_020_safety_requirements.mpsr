@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model ref="r:b31fa36a-153f-40a9-87ec-6a0215747751(fasten.assurance.demo.uav._010_requirements)" content="root">
   <persistence version="9" />
-  <imports />
+  <imports>
+    <import index="37s5" ref="r:92d602df-97f5-4586-aadf-c5619ab85c1d(fasten.assurance.demo.uav._100_stpa)" implicit="true" />
+  </imports>
   <registry>
     <language id="92d2ea16-5a42-4fdf-a676-c7604efe3504" name="de.slisson.mps.richtext">
       <concept id="2557074442922380897" name="de.slisson.mps.richtext.structure.Text" flags="ng" index="19SGf9">
@@ -17,6 +19,7 @@
       <concept id="4908298719893728422" name="com.mbeddr.formal.req.base.structure.AbstractRequirement" flags="ng" index="1QQeG8">
         <property id="3226630706269685486" name="id" index="0lsPA" />
         <child id="3226630706270047943" name="kind" index="0nOlf" />
+        <child id="6025137760892668610" name="attributes" index="2FklKs" />
         <child id="4908298719893728423" name="title" index="1QQeG9" />
       </concept>
       <concept id="4908298719893728417" name="com.mbeddr.formal.req.base.structure.RequirementDocument" flags="ng" index="1QQeGf">
@@ -24,7 +27,17 @@
       </concept>
     </language>
     <language id="434b2bfb-bd7a-47c9-bced-b445035e6d96" name="com.mbeddr.formal.safety.req">
-      <concept id="6251628050004698410" name="com.mbeddr.formal.safety.req.structure.FunctionalSafetyReqKind" flags="ng" index="2iDXIW" />
+      <concept id="6251628050004698410" name="com.mbeddr.formal.safety.req.structure.FunctionalSafetyReqKind" flags="ng" index="2iDXIW">
+        <child id="7998766141987827641" name="hazards" index="DABNk" />
+      </concept>
+      <concept id="6025137760892770299" name="com.mbeddr.formal.safety.req.structure.AsilAttribute" flags="ng" index="2FkW4_">
+        <property id="6025137760892770342" name="asil" index="2FkWVS" />
+      </concept>
+    </language>
+    <language id="17da266c-02d9-4bbd-b69b-8a656b49f45c" name="com.mbeddr.formal.safety.hara">
+      <concept id="7998766141987827621" name="com.mbeddr.formal.safety.hara.structure.HazardRef" flags="ng" index="DABN8">
+        <reference id="7998766141987827622" name="hazard" index="DABNb" />
+      </concept>
     </language>
     <language id="ceab5195-25ea-4f22-9b92-103b95ca8c0c" name="jetbrains.mps.lang.core">
       <concept id="1133920641626" name="jetbrains.mps.lang.core.structure.BaseConcept" flags="ng" index="2VYdi">
@@ -41,21 +54,38 @@
     <node concept="0lH3_" id="1aUDt0N7Afz" role="1QQeBF" />
     <node concept="0lhDl" id="1aUDt0N7Af$" role="1QQeBF">
       <property role="0lsPA" value="safety_01" />
-      <node concept="2iDXIW" id="1aUDt0N7Amr" role="0nOlf" />
+      <node concept="2iDXIW" id="1aUDt0N7Amr" role="0nOlf">
+        <node concept="DABN8" id="2Yza4u84ZJQ" role="DABNk">
+          <ref role="DABNb" to="37s5:1aUDt0Ngmae" resolve="UAV gets too close to another object." />
+        </node>
+        <node concept="DABN8" id="2Yza4u84ZJR" role="DABNk">
+          <ref role="DABNb" to="37s5:5xecbsSg2Xp" resolve="UAV collides with another object." />
+        </node>
+      </node>
       <node concept="19SGf9" id="1aUDt0N7AfA" role="1QQeG9">
         <node concept="19SUe$" id="1aUDt0N7AfB" role="19SJt6">
           <property role="19SUeA" value="The drone shall be able to avoid collisions with stationary objects " />
         </node>
       </node>
+      <node concept="2FkW4_" id="2Yza4u84ZJZ" role="2FklKs">
+        <property role="2FkWVS" value="5et_HVSN_wa/ASIL_D" />
+      </node>
     </node>
     <node concept="0lH3_" id="1aUDt0N7Aur" role="1QQeBF" />
     <node concept="0lhDl" id="1aUDt0N7AtB" role="1QQeBF">
       <property role="0lsPA" value="safety_02" />
-      <node concept="2iDXIW" id="1aUDt0N7AtC" role="0nOlf" />
+      <node concept="2iDXIW" id="1aUDt0N7AtC" role="0nOlf">
+        <node concept="DABN8" id="2Yza4u84ZJU" role="DABNk">
+          <ref role="DABNb" to="37s5:2Yza4u84ZJT" resolve="UAV exits the ODD" />
+        </node>
+      </node>
       <node concept="19SGf9" id="1aUDt0N7AtD" role="1QQeG9">
         <node concept="19SUe$" id="1aUDt0N7AtE" role="19SJt6">
           <property role="19SUeA" value="The drone shall be able to detect exits from the ODD " />
         </node>
+      </node>
+      <node concept="2FkW4_" id="2Yza4u84ZJW" role="2FklKs">
+        <property role="2FkWVS" value="5et_HVSN_vY/ASIL_B" />
       </node>
     </node>
     <node concept="0lH3_" id="1aUDt0N7An_" role="1QQeBF" />
