@@ -3,14 +3,18 @@ on:
   repository_dispatch:
   workflow_dispatch:
 jobs:
-  build:
+  check_data_gathered_from_runtime:
     runs-on: ubuntu-latest
+    env:
+      SPIS_DATA_HOME_CHECKOUT: "./runtime/FASTEN_Demo_Runtime"
+      # the checking task is ran in a sub-directory of build - FASTEN_Demo/build/temp_xyz/runSpiChecks
+      # relative to that directory, we need to go up 3 times to reach the directory where the repo was cloned
+      SPIS_DATA_HOME: "../../../runtime/FASTEN_Demo_Runtime"
     steps:
       - name: Run Job
         run: echo "Manually triggered!"
 
       - uses: actions/checkout@v4
-
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
 
@@ -18,14 +22,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: danielratiu/FASTEN_Demo_Runtime
-          path: ../FASTEN_Demo_Runtime
+          path: ${{ env.SPIS_DATA_HOME_CHECKOUT }}
 
       - name: Check Models based on Runtime Data
         run: |
-          ./gradlew  \
-            -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
-            -DSPIS_DATA_HOME=../FASTEN_Demo_Runtime \
-            runRuntimeModelChecks
+         pwd 
+         ls -lR ./runtime
+         ls ..
+         ./gradlew  \
+           -Pgpr.user=${{github.actor}} -Pgpr.token=${{ secrets.GITHUB_TOKEN }} \
+           runSPIsChecks
 
       - name: Publish test report
         uses: mikepenz/action-junit-report@v4

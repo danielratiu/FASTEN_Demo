@@ -2,7 +2,10 @@
 <project version="4">
   <component name="MPSProject">
     <projectModules>
-      <modulePath path="$PROJECT_DIR$/solutions/fasten.assurance.demo/fasten.assurance.demo.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/solutions/fasten.assurance.demo.common/fasten.assurance.demo.common.msd" folder="_010_commons" />
+      <modulePath path="$PROJECT_DIR$/solutions/fasten.assurance.demo.spis/fasten.assurance.demo.spis.msd" folder="_030_argument" />
+      <modulePath path="$PROJECT_DIR$/solutions/fasten.assurance.demo.uav/fasten.assurance.demo.uav.msd" folder="_020_system" />
+      <modulePath path="$PROJECT_DIR$/solutions/fasten.assurance.demo/fasten.assurance.demo.msd" folder="_030_argument" />
     </projectModules>
   </component>
 </project>
