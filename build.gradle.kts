@@ -93,29 +93,42 @@ tasks {
     }
 }
 
+// This task generates the code for the custom checks associated to the assurance case
 tasks.register("generateCustomChecks", MpsGenerate::class) {
     dependsOn(resolveMps)
+    description = "Generates code from the custom checks associated to the assurance case"
     projectLocation = file(".")
+    // specify the modules to be generated as strings separated by commas - e.g. modules=listOf("module1","module2")
     modules = listOf("fasten.assurance.demo")
     environmentKind = EnvironmentKind.IDEA
 }
 
+// This task runs the model checks on all modules except the one containing the SPIs
 tasks.register("runStaticModelChecks", MpsCheck::class) {
     dependsOn("generateCustomChecks")
+    description = "Runs model checks on the project excluding the module containing the SPIs"
     projectLocation = file(".")
+    // specify the modules to be excluded as strings separated by commas - e.g. excludedModules=listOf("module1","module2")
+    // we exclude only the module containing the SPIs as those are checked separately in another workflow
     excludeModules = listOf("fasten.assurance.demo.spis")
 }
 
+// This task generates the code for the checks defined in the SPIs module
 tasks.register("generateSPIsChecks", MpsGenerate::class) {
     dependsOn(resolveMps)
+    description = "Generates code from the checks from the SPIs module"
     projectLocation = file(".")
+    // the only module to be generated here is the one containing the SPIs - if other modules should be generated, they can be added to the list
     modules = listOf("fasten.assurance.demo.spis")
     environmentKind = EnvironmentKind.IDEA
 }
 
+// This task is triggered separately in another workflow - it checks only the SPIs module
 tasks.register("runSPIsChecks", MpsCheck::class) {
     dependsOn("generateSPIsChecks")
+    description = "Check the SPIs by running the model checker on the SPIs module"
     projectLocation = file(".")
+    // the only module to be checked here is the one containing the SPIs
     modules = listOf("fasten.assurance.demo.spis")
 }
 
