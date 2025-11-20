@@ -16,7 +16,7 @@ plugins {
 // detect if we are in a CI build
 val ciBuild = (System.getenv("CI") != null && System.getenv("CI").toBoolean()) || project.hasProperty("forceCI") || project.hasProperty("teamcity")
 
-val fastenVersion = "2024.1.1535.c98cb4d"
+val fastenVersion = "2024.1.+"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
@@ -45,37 +45,37 @@ repositories {
     mavenCentral()
 }
 
-val skipResolveMps = project.hasProperty("mpsHomeDir")
-val mpsHomeDir = rootProject.file(project.findProperty("mpsHomeDir")
-    ?: layout.buildDirectory.dir("mps").get().asFile.path)
+val skipResolveFasten = project.hasProperty("fastenHomeDir")
+val fastenHomeDir = rootProject.file(project.findProperty("fastenHomeDir")
+    ?: layout.buildDirectory.dir("fasten").get().asFile.path)
 
-val resolveMps = if (skipResolveMps) {
-        tasks.register("resolveMps") {
+val resolveFasten = if (skipResolveFasten) {
+        tasks.register("resolveFasten") {
             doLast {
-                logger.info("MPS resolution skipped")
-                logger.info("MPS home: {}", mpsHomeDir.getAbsolutePath())
+                logger.info("FASTEN resolution skipped")
+                logger.info("FASTEN home: {}", fastenHomeDir.getAbsolutePath())
             }
         }
     } else {
         val unpacker = if (!ciBuild) ::zipTree else ::tarTree
         
-        tasks.register("resolveMps", Copy::class) {
+        tasks.register("resolveFasten", Copy::class) {
             dependsOn(configurations["mps"])
             from({
                 configurations["mps"].resolve().map(unpacker)
             })
-            into(mpsHomeDir)
+            into(fastenHomeDir)
         }
     }
 
 tasks {
     withType<MpsCheck>().configureEach {
         mpsVersion = fastenVersion
-        mpsHome = mpsHomeDir
+        mpsHome = fastenHomeDir
         folderMacros.put("fasten.demo.home", layout.projectDirectory)
         pluginRoots.addAll(
             layout.buildDirectory.map { buildDir ->
-                listOf("mps/plugins").map { buildDir.dir(it) }
+                listOf("fasten/plugins").map { buildDir.dir(it) }
             })
         ignoreFailures = true
         maxHeapSize = "2G"
@@ -83,11 +83,11 @@ tasks {
 
     withType<MpsGenerate>().configureEach {
         mpsVersion = fastenVersion
-        mpsHome = mpsHomeDir
+        mpsHome = fastenHomeDir
         folderMacros.put("fasten.demo.home", layout.projectDirectory)
         pluginRoots.from(
             layout.buildDirectory.map { buildDir ->
-                listOf("mps/plugins").map { buildDir.dir(it) }
+                listOf("fasten/plugins").map { buildDir.dir(it) }
             })
         maxHeapSize = "2G"
     }
@@ -95,7 +95,7 @@ tasks {
 
 // This task generates the code for the custom checks associated to the assurance case
 tasks.register("generateCustomChecks", MpsGenerate::class) {
-    dependsOn(resolveMps)
+    dependsOn(resolveFasten)
     description = "Generates code from the custom checks associated to the assurance case"
     projectLocation = file(".")
     // specify the modules to be generated as strings separated by commas - e.g. modules=listOf("module1","module2")
@@ -115,7 +115,7 @@ tasks.register("runStaticModelChecks", MpsCheck::class) {
 
 // This task generates the code for the checks defined in the SPIs module
 tasks.register("generateSPIsChecks", MpsGenerate::class) {
-    dependsOn(resolveMps)
+    dependsOn(resolveFasten)
     description = "Generates code from the checks from the SPIs module"
     projectLocation = file(".")
     // the only module to be generated here is the one containing the SPIs - if other modules should be generated, they can be added to the list
