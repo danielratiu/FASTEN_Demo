@@ -16,13 +16,15 @@ plugins {
 // detect if we are in a CI build
 val ciBuild = (System.getenv("CI") != null && System.getenv("CI").toBoolean()) || project.hasProperty("forceCI") || project.hasProperty("teamcity")
 
-val fastenVersion = "2024.1.1535.c98cb4d"
+val fastenVersion = "2024.1.+"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
-    val mps by creating
+    val mpsWin by creating
+    val mpsLinux by creating
     dependencies {
-	    mps("fasten:$rcpRepo:$fastenVersion")
+	    mpsWin("fasten:win.rcp:$fastenVersion")
+	    mpsLinux("fasten:linux.rcp:$fastenVersion")
     }
 }
  
@@ -45,37 +47,38 @@ repositories {
     mavenCentral()
 }
 
-val skipResolveMps = project.hasProperty("mpsHomeDir")
-val mpsHomeDir = rootProject.file(project.findProperty("mpsHomeDir")
-    ?: layout.buildDirectory.dir("mps").get().asFile.path)
+val skipResolveFasten = project.hasProperty("fastenHomeDir")
+val fastenHomeDir = rootProject.file(project.findProperty("fastenHomeDir")
+    ?: layout.buildDirectory.dir("fasten").get().asFile.path)
 
-val resolveMps = if (skipResolveMps) {
-        tasks.register("resolveMps") {
+val resolveFasten = if (skipResolveFasten) {
+        tasks.register("resolveFasten") {
             doLast {
-                logger.info("MPS resolution skipped")
-                logger.info("MPS home: {}", mpsHomeDir.getAbsolutePath())
+                logger.info("FASTEN resolution skipped")
+                logger.info("FASTEN home: {}", fastenHomeDir.getAbsolutePath())
             }
         }
     } else {
         val unpacker = if (!ciBuild) ::zipTree else ::tarTree
-        
-        tasks.register("resolveMps", Copy::class) {
-            dependsOn(configurations["mps"])
+
+        val dependency = if (ciBuild) configurations["mpsLinux"] else configurations["mpsWin"]
+        tasks.register("resolveFasten", Copy::class) {
+            dependsOn(dependency)
             from({
-                configurations["mps"].resolve().map(unpacker)
+                dependency.resolve().map(unpacker)
             })
-            into(mpsHomeDir)
+            into(fastenHomeDir)
         }
     }
 
 tasks {
     withType<MpsCheck>().configureEach {
         mpsVersion = fastenVersion
-        mpsHome = mpsHomeDir
+        mpsHome = fastenHomeDir
         folderMacros.put("fasten.demo.home", layout.projectDirectory)
         pluginRoots.addAll(
             layout.buildDirectory.map { buildDir ->
-                listOf("mps/plugins").map { buildDir.dir(it) }
+                listOf("fasten/plugins").map { buildDir.dir(it) }
             })
         ignoreFailures = true
         maxHeapSize = "2G"
@@ -83,39 +86,52 @@ tasks {
 
     withType<MpsGenerate>().configureEach {
         mpsVersion = fastenVersion
-        mpsHome = mpsHomeDir
+        mpsHome = fastenHomeDir
         folderMacros.put("fasten.demo.home", layout.projectDirectory)
         pluginRoots.from(
             layout.buildDirectory.map { buildDir ->
-                listOf("mps/plugins").map { buildDir.dir(it) }
+                listOf("fasten/plugins").map { buildDir.dir(it) }
             })
         maxHeapSize = "2G"
     }
 }
 
+// This task generates the code for the custom checks associated to the assurance case
 tasks.register("generateCustomChecks", MpsGenerate::class) {
-    dependsOn(resolveMps)
+    dependsOn(resolveFasten)
+    description = "Generates code from the custom checks associated to the assurance case"
     projectLocation = file(".")
+    // specify the modules to be generated as strings separated by commas - e.g. modules=listOf("module1","module2")
     modules = listOf("fasten.assurance.demo")
     environmentKind = EnvironmentKind.IDEA
 }
 
+// This task runs the model checks on all modules except the one containing the SPIs
 tasks.register("runStaticModelChecks", MpsCheck::class) {
     dependsOn("generateCustomChecks")
+    description = "Runs model checks on the project excluding the module containing the SPIs"
     projectLocation = file(".")
+    // specify the modules to be excluded as strings separated by commas - e.g. excludedModules=listOf("module1","module2")
+    // we exclude only the module containing the SPIs as those are checked separately in another workflow
     excludeModules = listOf("fasten.assurance.demo.spis")
 }
 
+// This task generates the code for the checks defined in the SPIs module
 tasks.register("generateSPIsChecks", MpsGenerate::class) {
-    dependsOn(resolveMps)
+    dependsOn(resolveFasten)
+    description = "Generates code from the checks from the SPIs module"
     projectLocation = file(".")
+    // the only module to be generated here is the one containing the SPIs - if other modules should be generated, they can be added to the list
     modules = listOf("fasten.assurance.demo.spis")
     environmentKind = EnvironmentKind.IDEA
 }
 
+// This task is triggered separately in another workflow - it checks only the SPIs module
 tasks.register("runSPIsChecks", MpsCheck::class) {
     dependsOn("generateSPIsChecks")
+    description = "Check the SPIs by running the model checker on the SPIs module"
     projectLocation = file(".")
+    // the only module to be checked here is the one containing the SPIs
     modules = listOf("fasten.assurance.demo.spis")
 }
 

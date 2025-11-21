@@ -1,11 +1,10 @@
 @echo off
 
-echo Resolving MPS ...
-CALL gradlew.bat resolveMPS
+echo Resolving FASTEN ...
+CALL gradlew.bat resolveFasten
 
 echo Starting FASTEN ...
-cd build\mps\bin\
-CALL fasten.bat
-echo FASTEN starting in progrss ... it might take a couple of seconds!  
+CALL build\fasten\bin\fasten.bat .
+echo FASTEN starting in progress ... it might take a couple of seconds!
 ECHO.
 PAUSE
