@@ -20,9 +20,11 @@ val fastenVersion = "2024.1.+"
 val rcpRepo = if (ciBuild) "linux.rcp" else "win.rcp"
 
 configurations {
-    val mps by creating
+    val mpsWin by creating
+    val mpsLinux by creating
     dependencies {
-	    mps("fasten:$rcpRepo:$fastenVersion")
+	    mpsWin("fasten:win.rcp:$fastenVersion")
+	    mpsLinux("fasten:linux.rcp:$fastenVersion")
     }
 }
  
@@ -58,11 +60,12 @@ val resolveFasten = if (skipResolveFasten) {
         }
     } else {
         val unpacker = if (!ciBuild) ::zipTree else ::tarTree
-        
+
+        val dependency = if (ciBuild) configurations["mpsLinux"] else configurations["mpsWin"]
         tasks.register("resolveFasten", Copy::class) {
-            dependsOn(configurations["mps"])
+            dependsOn(dependency)
             from({
-                configurations["mps"].resolve().map(unpacker)
+                dependency.resolve().map(unpacker)
             })
             into(fastenHomeDir)
         }
