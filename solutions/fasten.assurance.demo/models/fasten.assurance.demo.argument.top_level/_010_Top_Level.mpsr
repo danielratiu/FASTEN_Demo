@@ -248,7 +248,7 @@
         <node concept="gqqVs" id="Fi9JGvVOm9" role="37mO4d">
           <property role="gqqTZ" value="71.0" />
           <property role="gqqTW" value="10.000100000000003" />
-          <property role="gqqTX" value="230.0" />
+          <property role="gqqTX" value="280.0" />
           <property role="gqqTy" value="96.0" />
           <property role="TgtnS" value="1.0;0.0;0.0;1.0;0.0;0.0" />
         </node>
@@ -336,6 +336,20 @@
       <node concept="37mRIm" id="5xecbsSebBM" role="37mRID">
         <property role="37mO49" value="6363076887001479584" />
         <node concept="2VclpC" id="5xecbsSebBL" role="37mO4d" />
+      </node>
+      <node concept="37mRIm" id="36m6lUD$N8k" role="37mRID">
+        <property role="37mO49" value="3573071248727683542" />
+        <node concept="gqqVs" id="36m6lUD$N8j" role="37mO4d">
+          <property role="gqqTZ" value="1137.0" />
+          <property role="gqqTW" value="320.0" />
+          <property role="gqqTX" value="262.0" />
+          <property role="gqqTy" value="54.0" />
+          <property role="TgtnS" value="1.0;0.0;0.0;1.0;0.0;0.0" />
+        </node>
+      </node>
+      <node concept="37mRIm" id="36m6lUD$Nb5" role="37mRID">
+        <property role="37mO49" value="3573071248727683721" />
+        <node concept="2VclpC" id="36m6lUD$Nb4" role="37mO4d" />
       </node>
     </node>
     <node concept="2vmxQI" id="1T09dM6bwrq" role="2vn1q5">
@@ -467,6 +481,18 @@
     <node concept="2vhqFZ" id="5xecbsSebAw" role="2vhqc$">
       <ref role="3VeSjP" node="1T09dM6bwqH" resolve="G01_Top_Level" />
       <ref role="3VeSjQ" node="5xecbsSebfI" resolve="C01_Top_Level" />
+    </node>
+    <node concept="2vn7WC" id="36m6lUD$N7m" role="2vn1q5">
+      <property role="TrG5h" value="G06_Top" />
+      <node concept="19SGf9" id="36m6lUD$N7n" role="2vnaTY">
+        <node concept="19SUe$" id="36m6lUD$N7o" role="19SJt6">
+          <property role="19SUeA" value="Demo goal without responsible. " />
+        </node>
+      </node>
+    </node>
+    <node concept="3VeUTF" id="36m6lUD$Na9" role="2vhqc$">
+      <ref role="3VeSjP" node="1T09dM6bwrq" resolve="S01_Top_Level" />
+      <ref role="3VeSjQ" node="36m6lUD$N7m" />
     </node>
   </node>
 </model>
