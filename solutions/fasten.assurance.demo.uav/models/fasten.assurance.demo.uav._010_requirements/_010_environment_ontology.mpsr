@@ -126,7 +126,7 @@
     <node concept="2IzUYn" id="1dcfyN87vP1" role="3SOpfD" />
     <node concept="2IzUYn" id="1dcfyN87vP2" role="3SOpfD" />
     <node concept="3SOpcA" id="1dcfyN87vOx" role="3SOpfD">
-      <property role="TrG5h" value="Temperature" />
+      <property role="TrG5h" value="Environment Temperature" />
       <ref role="3SOpc_" node="1dcfyN87vOm" resolve="Enviromental Condition" />
     </node>
     <node concept="3SOpcA" id="1dcfyN87vP6" role="3SOpfD">
