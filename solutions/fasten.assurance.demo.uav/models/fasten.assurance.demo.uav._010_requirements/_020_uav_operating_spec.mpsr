@@ -113,6 +113,12 @@
           </node>
         </node>
       </node>
+      <node concept="3fWYEE" id="7qf2ZM5db$e" role="3fY04B">
+        <property role="3fWJIx" value="3RNDPbM0lNA/allow_all" />
+        <node concept="MFvB7" id="7qf2ZM5db$g" role="3fWY_o">
+          <ref role="MFvBS" node="1dcfyN87vOx" resolve="Environment Temperature" />
+        </node>
+      </node>
     </node>
   </node>
 </model>
